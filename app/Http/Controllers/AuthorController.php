@@ -54,4 +54,10 @@ class AuthorController extends Controller
      function admin_home(){
         return view('frontend.author.admin_home');
      }
+      function author_edit(){
+        return view('frontend.author.author_edit');
+     }
+
+
+
 }

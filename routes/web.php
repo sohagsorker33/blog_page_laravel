@@ -68,3 +68,4 @@ Route::get('/admin_home',[AuthorController::class,'admin_home'])->middleware('au
 Route::get('/author',[UserController::class,'author'])->name('author');
 Route::get('/author_status/{author_id}',[UserController::class,'author_status'])->name('author.status');
 Route::get('/author_delete/{author_id}',[UserController::class,'author_delete'])->name('author.delete');
+Route::get('/author_edit',[AuthorController::class,'author_edit'])->name('author.edit');
