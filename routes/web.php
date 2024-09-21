@@ -68,5 +68,6 @@ Route::get('/admin_home',[AuthorController::class,'admin_home'])->middleware('au
 Route::get('/author',[UserController::class,'author'])->name('author');
 Route::get('/author_status/{author_id}',[UserController::class,'author_status'])->name('author.status');
 Route::get('/author_delete/{author_id}',[UserController::class,'author_delete'])->name('author.delete');
-Route::get('/author_edit',[AuthorController::class,'author_edit'])->name('author.edit');
+Route::get('/author_edit',[AuthorController::class,'author_edit'])->middleware('author')->name('author.edit');
 Route::post('/author_profile_update',[AuthorController::class,'author_profile_update'])->name('author.profile.update');
+Route::post('/author_password_update',[AuthorController::class,'author_password_update'])->name('author.password.update');

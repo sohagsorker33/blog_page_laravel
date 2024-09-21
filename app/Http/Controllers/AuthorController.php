@@ -8,6 +8,7 @@ Use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use Illuminate\Support\Facades\Hash;
 class AuthorController extends Controller
 {
      function Author_insert_register(Request $request){
@@ -85,5 +86,23 @@ function author_profile_update(Request $request){
  }
   return back()->with('update','Profile Updated Successfully');
 }
+
+function author_password_update(Request $request){
+ if(Hash::check($request->old_password,Auth::guard('author')->user()->password)){
+    if($request->new_password == $request->password_confirmation){
+        Author::find(Auth::guard('author')->id())->update([
+          'password'=>bcrypt($request->new_password)
+        ]);
+        return back()->with('change_password','Password Updated Successfully');
+    }else{
+        return back()->with('password','Password does not match');
+    }
+
+ }else{
+    return back()->with('old_password','Old Password does not match');
+ }
+}
+
+
 
 }
