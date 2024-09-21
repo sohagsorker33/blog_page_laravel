@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 Use App\Models\author;
 Use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 class AuthorController extends Controller
 {
      function Author_insert_register(Request $request){
@@ -57,7 +59,31 @@ class AuthorController extends Controller
       function author_edit(){
         return view('frontend.author.author_edit');
      }
-
-
+function author_profile_update(Request $request){
+ if($request->photo ==''){
+     Author::find(Auth::guard('author')->id())->update([
+       'name'=>$request->name,
+       'email'=>$request->email
+     ]) ;
+ }else{
+  $photo=$request->photo;
+  $extension=$photo->extension();
+  $file_name=uniqid().".".$extension;
+  $manager = new ImageManager(new Driver());
+  $image = $manager->read($photo);
+  $image->resize( 200,200);
+  $image->save(public_path("uploads/author/".$file_name));
+  if(Auth::guard('author')->user()->photo !=null){
+      $delete_form=public_path("uploads/author/".Auth::guard('author')->user()->photo);
+      unlink($delete_form);
+  }
+  Author::find(Auth::guard('author')->id())->update([
+    'name'=>$request->name,
+    'email'=>$request->email,
+    'photo'=>$file_name,
+  ]);
+ }
+  return back()->with('update','Profile Updated Successfully');
+}
 
 }
