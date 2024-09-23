@@ -76,3 +76,6 @@ Route::post('/author_password_update',[AuthorController::class,'author_password_
 
 Route::get('/add_post',[PostController::class,'add_post'])->name('add.post');
 Route::post('/post_insert',[PostController::class,'post_insert'])->name('post.insert');
+Route::get('my_post',[PostController::class,'my_post'])->name('my.post');
+Route::get('/my_post_status/{post_id}',[PostController::class,'my_post_status'])->name('my.post.status');
+Route::get('/post_delete/{post_id}',[PostController::class,'post_delete'])->name('post.delete');

@@ -11,6 +11,7 @@
 	<!-- plugin css for this page -->
 	<!-- end plugin css for this page -->
 	<!-- inject:css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('admin_asset') }}/fonts/feather-font/css/iconfont.css">
@@ -58,11 +59,11 @@
                   <a href="{{ route('add.post') }}" class="nav-link">Add New Post</a>
                 </li>
                 <li class="nav-item">
-                  <a href="../../pages/email/read.html" class="nav-link">Read</a>
+                  <a href="{{ route('my.post') }}" class="nav-link">MyPost </a>
                 </li>
-                <li class="nav-item">
+              {{--   <li class="nav-item">
                   <a href="../../pages/email/compose.html" class="nav-link">Compose</a>
-                </li>
+                </li> --}}
               </ul>
             </div>
           </li>
@@ -266,7 +267,7 @@
 	<!-- plugin js for this page -->
 	<!-- end plugin js for this page -->
 	<!-- inject:js -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"></script>
 	<script src="{{ asset('admin_asset') }}/vendors/feather-icons/feather.min.js"></script>

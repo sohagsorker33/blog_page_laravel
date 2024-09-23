@@ -58,4 +58,42 @@ class PostController extends Controller
 
 
 
+
+
+ function my_post(){
+    $posts=Post::where('author_id',Auth::guard('author')->id())->paginate(2);
+   return view('frontend.author.my_post',[
+    'posts' => $posts
+   ]);
+
+ }
+
+function my_post_status($post_id){
+   $posts=Post::find($post_id);
+   if($posts->status==1){
+    Post::find($post_id)->update([
+        'status'=>0
+    ]);
+    return back();
+   }else{
+    Post::find($post_id)->update([
+        'status'=>1
+    ]);
+    return back();
+   }
+
+}
+ function post_delete($post_id){
+    $posts=Post::find($post_id);
+    $delete_preview=public_path("uploads/post/preview/").$posts->preview;
+    $delete_thumbnail=public_path("uploads/post/thumbnail/").$posts->thumbnail;
+    unlink($delete_preview);
+    unlink($delete_thumbnail);
+    Post::find($post_id)->delete();
+    return back()->with('post_delete','Post Deleted Successfully');
+ }
+
+
+
+
 }
