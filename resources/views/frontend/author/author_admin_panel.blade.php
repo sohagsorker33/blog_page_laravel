@@ -11,6 +11,8 @@
 	<!-- plugin css for this page -->
 	<!-- end plugin css for this page -->
 	<!-- inject:css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('admin_asset') }}/fonts/feather-font/css/iconfont.css">
 	<link rel="stylesheet" href="{{ asset('admin_asset') }}/vendors/flag-icon-css/css/flag-icon.min.css">
 	<!-- endinject -->
@@ -47,13 +49,13 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
               <i class="link-icon" data-feather="mail"></i>
-              <span class="link-title">Email</span>
+              <span class="link-title">Post</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
             <div class="collapse" id="emails">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="../../pages/email/inbox.html" class="nav-link">Inbox</a>
+                  <a href="{{ route('add.post') }}" class="nav-link">Add New Post</a>
                 </li>
                 <li class="nav-item">
                   <a href="../../pages/email/read.html" class="nav-link">Read</a>
@@ -264,10 +266,14 @@
 	<!-- plugin js for this page -->
 	<!-- end plugin js for this page -->
 	<!-- inject:js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"></script>
 	<script src="{{ asset('admin_asset') }}/vendors/feather-icons/feather.min.js"></script>
 	<script src="{{ asset('admin_asset') }}/js/template.js"></script>
 	<!-- endinject -->
 	<!-- custom js for this page -->
   <!-- end custom js for this page -->
+  @yield('script')
 </body>
 </html>

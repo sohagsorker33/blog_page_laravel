@@ -6,6 +6,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -71,3 +72,7 @@ Route::get('/author_delete/{author_id}',[UserController::class,'author_delete'])
 Route::get('/author_edit',[AuthorController::class,'author_edit'])->middleware('author')->name('author.edit');
 Route::post('/author_profile_update',[AuthorController::class,'author_profile_update'])->name('author.profile.update');
 Route::post('/author_password_update',[AuthorController::class,'author_password_update'])->name('author.password.update');
+//Post Route
+
+Route::get('/add_post',[PostController::class,'add_post'])->name('add.post');
+Route::post('/post_insert',[PostController::class,'post_insert'])->name('post.insert');
