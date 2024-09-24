@@ -11,6 +11,9 @@ use Carbon\Carbon;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use PHPUnit\TextUI\Command\ShowVersionCommand;
+use Illuminate\Support\Str;
+use App\Models\author;
+
 
 class PostController extends Controller
 {
@@ -47,6 +50,7 @@ class PostController extends Controller
    'category_id'=>$request->category_id,
    'read_time'=>$request->read_time,
    'title'=>$request->title,
+   'slug'=>Str::lower(str_replace(" ","-",$request->title)).''.random_int(100000,200000),
    'description'=>$request->description,
    'tags'=>implode(",",$request->tag_id),
    'preview'=>$preview_name,
@@ -93,7 +97,20 @@ function my_post_status($post_id){
     return back()->with('post_delete','Post Deleted Successfully');
  }
 
+ function post_details($slug){
+    $post=Post::where('slug',$slug)->first();
+    return view('frontend.author.post_details',[
+        'post' => $post
+    ]);
+ }
 
-
+ function author_post($author_id){
+$author=Author::find($author_id);
+$post=Post::where('author_id',$author_id)->where('status',1)->get();
+  return view('frontend.author.author_post',[
+    'author' => $author,
+     'post' => $post
+  ]);
+ }
 
 }

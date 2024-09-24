@@ -13,4 +13,6 @@ class author extends Authenticatable
 
     protected $guard = 'author';
     protected $guarded = ['id'];
+
+
 }
