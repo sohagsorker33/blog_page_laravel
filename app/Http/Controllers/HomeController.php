@@ -10,7 +10,7 @@ class HomeController extends Controller
     function master(){
         $tags=Tag::all();
         $categories = Category::all();
-        $posts=Post::where('status',1)->get();
+        $posts=Post::where('status',1)->paginate(3);
         $sliders=Post::where('status',1)->latest()->take(6)->get();
         return view('frontend.home',[
             'categories' => $categories,

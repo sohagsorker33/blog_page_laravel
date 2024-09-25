@@ -98,7 +98,7 @@ function my_post_status($post_id){
  }
 
  function post_details($slug){
-    $post=Post::where('slug',$slug)->first();
+    $post=Post::where('slug',operator: $slug)->first();
     return view('frontend.author.post_details',[
         'post' => $post
     ]);

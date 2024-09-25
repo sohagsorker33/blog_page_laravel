@@ -96,7 +96,7 @@
                     </div>
                     @endforeach
                     <!--pagination-->
-                    <div class="pagination">
+                     {{--  <div class="pagination">
                         <div class="pagination-area">
                             <div class="pagination-list">
                                 <ul class="list-inline">
@@ -109,8 +109,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+                    {{ $posts->links('vendor.pagination.custom') }}
                 </div>
+
             </div>
 
             <!--Sidebar-->

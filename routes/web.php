@@ -22,7 +22,7 @@ Route::get('/',[HomeController::class,'master'])->name(name: 'master');
 
 //Backend Routes
 
-/* Route::get('/dashboard',[FrontendController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard'); */
+ Route::get('/dashboard',[FrontendController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -65,7 +65,7 @@ Route::post('/author_insert_register',[AuthorController::class,'author_insert_re
 Route::post('/author_login_post',[AuthorController::class,'author_login_post'])->name('author.login.post');
 Route::get('/author_logout',[AuthorController::class,'author_logout'])->name('author.logout');
 Route::get('/author_admin_panel',[AuthorController::class,'author_admin_panel'])->middleware('author')->name('author.admin.panel');
-Route::get('/admin_home',[AuthorController::class,'admin_home'])->name('admin.home')->middleware('author')->name( 'admin.home');
+Route::get('/admin_home',[AuthorController::class,'admin_home'])->name('admin.home') ;
 Route::get('/author',[UserController::class,'author'])->name('author');
 Route::get('/author_status/{author_id}',[UserController::class,'author_status'])->name('author.status');
 Route::get('/author_delete/{author_id}',[UserController::class,'author_delete'])->name('author.delete');
