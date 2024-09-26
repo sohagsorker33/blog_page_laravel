@@ -10,7 +10,7 @@
                 <div class="col-lg-12 col-md-12 ">
                         <div class="authors-info">
                         <div class="image">
-                            <a href="author.html" class="image">
+                            <a href="#" class="image">
                                 @if($author->photo !=null)
                                    <img src="{{ asset('uploads/author') }}/{{ $author->photo }}" alt="">
                                 @else
@@ -71,14 +71,14 @@
                         @foreach ($post as $post)
                         <div class="post-list post-list-style4 pt-0">
                             <div class="post-list-image">
-                                <a href="post-single.html">
+                                <a href="">
                                     <img src="{{ asset('/uploads/post/thumbnail') }}/{{ $post->thumbnail }}" alt="">
                                 </a>
                             </div>
                             <div class="post-list-content">
                                 <ul class="entry-meta">
                                     <li class="entry-cat">
-                                        <a href="blog-layout-1.html" class="category-style-1">{{ $post->cat_relation->category_name }}</a>
+                                        <a href="{{ route('category.post',$post->category_id) }}" class="category-style-1">{{ $post->cat_relation->category_name }}</a>
                                     </li>
                                     <li class="post-date"> <span class="line"></span>{{ $post->created_at->diffForHumans() }}</li>
                                 </ul>
@@ -93,7 +93,7 @@
                         @endforeach
                         <!--/-->
                         <!--pagination-->
-                        <div class="pagination">
+                          <div class="pagination">
                             <div class="pagination-area text-left">
                                 <div class="pagination-list">
                                     <ul class="list-inline">
@@ -107,6 +107,10 @@
                                 </div>
                             </div>
                         </div>
+
+                    <!--/-->
+
+
                     </div>
                 </div>
                 <!--/-->

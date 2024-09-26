@@ -5,6 +5,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\tag;
+use PharIo\Manifest\Author;
+
 class HomeController extends Controller
 {
     function master(){

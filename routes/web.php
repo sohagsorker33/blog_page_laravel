@@ -81,3 +81,4 @@ Route::get('/my_post_status/{post_id}',[PostController::class,'my_post_status'])
 Route::get('/post_delete/{post_id}',[PostController::class,'post_delete'])->name('post.delete');
 Route::get("post_details/{slug}",[PostController::class,'post_details'])->name('post.details');
 Route::get('/author_post/{author_id}',[PostController::class,'author_post'])->name('author.post');
+Route::get('/category_post/{category_id}',[PostController::class,'category_post'])->name('category.post');

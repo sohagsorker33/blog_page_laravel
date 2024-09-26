@@ -43,7 +43,8 @@
                              <textarea name="description" id="summernote"></textarea>
                         </div>
                     </div>
-                    <div class="col-lg-12">
+
+                    <div class="col-lg-6">
                         <div class="mb-3">
                             <label for=" "><h5>Tags</h5></label>
                             <select name="tag_id[]" id="select-gear" class="demo-default" multiple placeholder="Select gear...">
@@ -56,6 +57,13 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for=""><h5>Slug</h5></label>
+                            <input type="text" name="slug" class="form-control">
+                        </div>
+                    </div>
+
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label for=""class="form-label"><h5>Preview Image</h5></label>

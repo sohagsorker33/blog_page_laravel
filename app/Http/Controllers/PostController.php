@@ -100,17 +100,29 @@ function my_post_status($post_id){
  function post_details($slug){
     $post=Post::where('slug',operator: $slug)->first();
     return view('frontend.author.post_details',[
-        'post' => $post
+        'post' => $post,
+
     ]);
  }
 
  function author_post($author_id){
-$author=Author::find($author_id);
-$post=Post::where('author_id',$author_id)->where('status',1)->get();
+ $author=Author::find($author_id);
+ $post=Post::where('author_id',$author_id)->where('status',1)->get();
   return view('frontend.author.author_post',[
     'author' => $author,
-     'post' => $post
+     'post' => $post,
+
   ]);
+ }
+
+
+ function category_post($category_id){
+    $category=Category::find($category_id);
+    $post=Post::where('category_id',$category_id)->get();
+    return view('frontend.author.category',[
+        'category' => $category,
+        'post' => $post
+    ]);
  }
 
 }

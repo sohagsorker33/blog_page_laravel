@@ -15,7 +15,7 @@
                             <div class="post-overly">
                                 <div class="post-overly-content">
                                     <div class="entry-cat">
-                                        <a href="blog-layout-1.html" class="category-style-2">{{ $slider->cat_relation->category_name }}</a>
+                                        <a href="{{ route('category.post',$slider->category_id) }}" class="category-style-2">{{ $slider->cat_relation->category_name }}</a>
                                     </div>
                                     <h2 class="entry-title">
                                     <a href="{{ route('post.details',$slider->slug) }}">{{ $slider->title }} </a>
@@ -80,7 +80,7 @@
                         <div class="post-list-content">
                             <ul class="entry-meta">
                                 <li class="entry-cat">
-                                    <a href="blog-layout-1.html" class="category-style-1">{{ $post->cat_relation->category_name }}</a>
+                                    <a href="{{ route('category.post',$post->category_id) }}" class="category-style-1">{{ $post->cat_relation->category_name }}</a>
                                 </li>
                                 <li class="post-date"> <span class="line"></span> {{ $post->created_at->diffForHumans() }}</li>
                             </ul>
