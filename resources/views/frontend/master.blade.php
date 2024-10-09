@@ -197,10 +197,10 @@
                         <button type="button" class="close">
                             <i class="far fa-times"></i>
                         </button>
-                        <form class="search-form" action="https://oredoo.assiagroupe.net/Oredoo/search.html">
-                            <input type="search" value="" placeholder="What are you looking for?">
+                        <div class="search-form">
+                            <input type="search" id='search_input' value="" placeholder="What are you looking for?">
                             <button type="submit" class="search-btn"> search</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -229,3 +229,12 @@
 
 </body>
 </html>
+
+<script>
+    $('.search-btn').click(function(){
+      let search_key=$('#search_input').val();
+      let link="{{ route('search') }}"+"?search_key="+search_key;
+       window.location.href=link;
+    });
+</script>
+@yield('footer_script')

@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SearchController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -82,3 +83,7 @@ Route::get('/post_delete/{post_id}',[PostController::class,'post_delete'])->name
 Route::get("post_details/{slug}",[PostController::class,'post_details'])->name('post.details');
 Route::get('/author_post/{author_id}',[PostController::class,'author_post'])->name('author.post');
 Route::get('/category_post/{category_id}',[PostController::class,'category_post'])->name('category.post');
+
+
+// search route
+Route::get('/search',[SearchController::class,'search'])->name('search');

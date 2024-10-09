@@ -44,11 +44,11 @@
                 <div class="col-lg-12 ">
                     <div class="categories-items">
                         @foreach ($categories as $category)
-                        <a class="category-item" href="#">
+                        <a class="category-item" href="{{ route('category.post',$category->id) }}">
                             <div class="image">
                                 <img src="{{ asset('uploads/category') }}/{{  $category->category_image }}" alt="">
                             </div>
-                            <p>{{ $category->category_name }}<span>10</span> </p>
+                            <p>{{ $category->category_name }}<span>{{ App\models\Post::where('category_id',$category->id)->count() }}</span> </p>
                         </a>
                         @endforeach
                     </div>
@@ -125,9 +125,9 @@
                                 <h5>Search</h5>
                             </div>
                             <div class=" widget-search">
-                                <form action="https://oredoo.assiagroupe.net/Oredoo/search.html">
+                                <form >
                                     <input type="search" id="gsearch" name="gsearch" placeholder="Search ....">
-                                    <a href="search.html" class="btn-submit"><i class="las la-search"></i></a>
+                                    <a  class="btn-submit"><i class="las la-search"></i></a>
                                 </form>
                             </div>
                         </div>
@@ -282,5 +282,17 @@
     </div>
 </section>
 
+
+@endsection
+
+
+@section('footer_script')
+<script>
+    $('.btn-submit').click(function(){
+      let search_key=$('#gsearch').val();
+      let link="{{ route('search') }}"+"?search_key="+search_key;
+       window.location.href=link;
+    });
+</script>
 
 @endsection
