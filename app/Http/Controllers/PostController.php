@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use PHPUnit\TextUI\Command\ShowVersionCommand;
 use Illuminate\Support\Str;
 use App\Models\author;
-
+use App\Models\Popular;
 
 class PostController extends Controller
 {
@@ -99,6 +99,14 @@ function my_post_status($post_id){
 
  function post_details($slug){
     $post=Post::where('slug',operator: $slug)->first();
+    if(Popular::where('post_id',$post->id)->exists()){
+      Popular::where('post_id',$post->id)->increment('total_count',1);
+    }else{
+        Popular::insert([
+            'post_id'=>$post->id,
+            'total_count'=>1
+          ]);
+    }
     return view('frontend.author.post_details',[
         'post' => $post,
 

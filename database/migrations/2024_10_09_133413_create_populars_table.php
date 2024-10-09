@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('populers', function (Blueprint $table) {
+        Schema::create('populars', function (Blueprint $table) {
             $table->id();
-            $table->integer('posts_id');
-            $table->integer('read_count');
+           $table->integer('post_id');
+           $table->integer('total_count');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('populers');
+        Schema::dropIfExists('populars');
     }
 };
