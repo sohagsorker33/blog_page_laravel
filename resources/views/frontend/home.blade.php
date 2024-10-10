@@ -218,7 +218,7 @@
                                 <ul class="list-inline">
                                     @foreach ($tags as $tag )
                                     <li>
-                                        <a href="#">{{ $tag->tag_name }}</a>
+                                        <a href="{{ route('tag.post',$tag->id) }}">{{ $tag->tag_name }}</a>
                                     </li>
                                     @endforeach
 

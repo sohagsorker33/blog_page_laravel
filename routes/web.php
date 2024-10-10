@@ -10,6 +10,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\SearchController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use Laravel\Prompts\SearchPrompt;
 
 //Frontend Routes
 Route::get('/dashboard',[FrontendController::class,'dashboard'])->middleware(['auth',
@@ -59,6 +60,7 @@ Route::get('/tags_list',[CategoryController::class,'tags_list'])->middleware(['a
 Route::post('/tags_add',[CategoryController::class,'tags_add'])->name('tags.add');
 
 Route::get('/tag_list_delete/{tag_id}',[CategoryController::class,'tag_list_delete'])->name('tag.list.delete');
+Route::get('/tag_post/{tag_id}',[CategoryController::class,'tag_post'])->name('tag.post');
 
 // Author Routes
 

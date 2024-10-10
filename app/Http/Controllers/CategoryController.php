@@ -8,6 +8,7 @@ use Intervention\Image\Drivers\Gd\Driver;
 use Carbon\Carbon;
 use App\Models\Category;
 use App\Models\tag;
+use App\Models\Post;
 class CategoryController extends Controller
 {
   function category_user(){
@@ -129,6 +130,22 @@ function tag_list_delete($tag_id){
    return back()->with('tag_delete','Tag Deleted Successfully');
 }
 
+function tag_post($tag_id){
+    $all='';
+  foreach(Post::all() as $post){
+    $after_explode=explode(',', $post->tags);
+    if(in_array($tag_id,$after_explode)){
+       $all.=$post->id.",";
+    }
+  }
+   $explode2=explode(',',$all);
+   $tag_post=Post::find($explode2);
+   $tag=Tag::find($tag_id);
+   return view('layouts.admin.category.tag_post',[
+       'tag_post' => $tag_post,
+       'tag'=>$tag
+   ]);
+}
 
 }
 
