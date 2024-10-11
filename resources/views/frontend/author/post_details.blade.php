@@ -52,7 +52,9 @@
                             <div class="social-media">
                                 <p>Share on :</p>
                                 <ul class="list-inline">
+                                   {{--
                                     <li>
+
                                         <a href="#">
                                             <i class="fab fa-facebook"></i>
                                         </a>
@@ -76,7 +78,12 @@
                                         <a href="#" >
                                             <i class="fab fa-pinterest"></i>
                                         </a>
-                                    </li>
+                                    </li> --}}
+                                    {!!Share::currentPage()
+                                    ->facebook()
+                                    ->twitter()
+                                    ->linkedin('Extra linkedin summary can be passed here')
+                                    ->whatsapp();!!}
                                 </ul>
                             </div>
                         </div>

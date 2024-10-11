@@ -22,6 +22,26 @@
     <!-- main style -->
     <link rel="stylesheet" href="{{ asset('frontend_asset') }}/css/style.css">
     <link rel="stylesheet" href="{{ asset('frontend_asset') }}/css/custom.css">
+     <style>
+        .social-media ul li span{
+           margin-right: 10px;
+           height: 25px;
+           width: 25px;
+           line-height:25px;
+           text-align: center;
+          border-radius: 50%;
+          color: white;
+        }
+        .fa-facebook-square{
+            background:#3b5998;
+        }
+        .fa-linkedin{
+            background:hsl(207, 94%, 49%);
+        }
+        .fa-whatsapp{
+            background:#06ee06;
+        }
+     </style>
 </head>
 
 <body>
@@ -225,6 +245,7 @@
 
     <!-- JS main  -->
     <script src="{{ asset('frontend_asset') }}/js/main.js"></script>
+    <script src="{{ asset('js/share.js') }}"></script>
 
 
 </body>

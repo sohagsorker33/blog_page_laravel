@@ -14,7 +14,7 @@ class HomeController extends Controller
         $categories = Category::all();
         $posts=Post::where('status',1)->paginate(3);
         $sliders=Post::where('status',1)->latest()->take(6)->get();
-       $popular_post=Popular::where('total_count','>=',2)->get();
+         $popular_post=Popular::where('total_count','>=',2)->get();
         return view('frontend.home',[
             'categories' => $categories,
             'posts' => $posts,
